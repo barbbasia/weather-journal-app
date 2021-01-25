@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 const cors = require('cors');
 app.use(cors());
 
-// Initialize the main project folder called "website"
+// Initialize the main project folder called 'website'
 app.use(express.static('website'));
 
 // Setup Server
@@ -29,16 +29,16 @@ const port = 3000;
 const server = app.listen(port, listening);
 
 function listening() {
-    console.log("server is running");
+    console.log('server is running');
     console.log(`running on localhost: ${port}`);
 }
 
 
 // respond with object named projectData when a GET req is made to the homepage
 // GET route
-app.get('/all',getData)
+app.get('/all', getData)
 
-function getData(req,res){
+function getData(req, res) {
     res.send(projectData)
     // console.log(projectData)
 }
@@ -47,7 +47,7 @@ function getData(req,res){
 app.post('/add', addWeather);
 
 // push new entry to the projectData array
-function addWeather (req,res){
+function addWeather(req, res) {
     // projectData.push(req.body);
     newEntry = {
         date: req.body.date,

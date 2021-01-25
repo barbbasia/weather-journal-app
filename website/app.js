@@ -3,7 +3,7 @@ let baseURL = 'http://api.openweathermap.org/data/2.5/weather?q=';
 let apiKey = '&appid=' + 'f3d7f9329bfa0710852e607843dbba7e';
 
 let d = new Date();
-let newDate = d.getDate() + '.' +( d.getMonth()+1) + '.' +  d.getFullYear();
+let newDate = d.getDate() + '.' + (d.getMonth() + 1) + '.' + d.getFullYear();
 
 /* fetch input from text boxes */
 document.getElementById('generate').addEventListener('click', performAction);
@@ -33,7 +33,7 @@ const getWeather = async (url = '', city = '', key = '') => {
         // console.log(data);
         return data.main.temp
     } catch (error) {
-        console.log("error", error);
+        console.log('error', error);
     }
     // console.log(city);
 }
@@ -47,14 +47,14 @@ const postData = async (url = '', data = {}) => {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data), // body data type must match "Content-Type" header
+        body: JSON.stringify(data), // body data type must match 'Content-Type' header
     });
 
     try {
         const newData = await response.json();
         return newData;
     } catch (error) {
-        console.log("error", error);
+        console.log('error', error);
     }
 };
 
@@ -63,12 +63,14 @@ const updateUI = async () => {
     const req = await fetch('/all')
     try {
         const allData = await req.json()
-        const last = allData.length-1;
+        const last = allData.length - 1;
         console.log(allData);
-        document.getElementById('date').innerHTML = "Today's date: " + allData[last].date;
-        document.getElementById('myCity').innerHTML = "City: " + allData[last].city;
-        document.getElementById('temp').innerHTML = "Temp: " + allData[last].temp + '°C';
-        document.getElementById('content').innerHTML = "Feelings: " + allData[last].feelings;
+        if (allData[last].temp) {
+            document.getElementById('date').innerHTML = 'Today\'s date: <span>' + allData[last].date + '</span>';
+            document.getElementById('myCity').innerHTML = 'City: <span>' + allData[last].city + '</span>';
+            document.getElementById('temp').innerHTML = 'Temp: <span>' + allData[last].temp + '°C' + '</span>';
+            document.getElementById('content').innerHTML = 'Feelings: <span>' + allData[last].feelings + '</span>';
+        }
     } catch (error) {
         console.log('error', error)
     }

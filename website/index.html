@@ -9,24 +9,27 @@
 <body>
 <div id="app">
     <div class="holder headline">
-        Weather Journal App
+        <h1>Weather Journal App</h1>
     </div>
-    <div class="holder zip">
+    <div class="holder city">
         <label for="city">Enter city here</label>
-        <input type="text" id="city" placeholder="enter city here">
+        <input type="text" id="city" placeholder="Enter city here">
     </div>
     <div class="holder feel">
         <label for="feelings">How are you feeling today?</label>
-        <textarea class="myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
-        <button id="generate" type="submit"> Generate</button>
+        <textarea class="myInput" id="feelings" placeholder="Enter your feelings here" rows="6"
+                  cols="80"></textarea>
     </div>
-    <div class="holder entry">
-        <div class="title">Most Recent Entry</div>
-        <div id="entryHolder">
-            <div id="date"></div>
-            <div id="myCity"></div>
-            <div id="temp"></div>
-            <div id="content"></div>
+    <button class="holder generate" id="generate" type="submit">Generate</button>
+    <div class="output">
+        <label for="entryHolder">Most Recent Entry</label>
+        <div class="holder entry">
+            <div id="entryHolder">
+                <div id="date">Your entry will appear here</div>
+                <div id="myCity"></div>
+                <div id="temp"></div>
+                <div id="content"></div>
+            </div>
         </div>
     </div>
 </div>
